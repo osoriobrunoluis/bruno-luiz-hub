@@ -277,7 +277,7 @@ body::after {
 
   background: var(--btn-bg);
   color: var(--btn-fg);
-  border: 1.5px solid var(--btn-border);
+  border: 2.5px solid var(--btn-border);
   border-radius: 999px;
 
   cursor: pointer;
