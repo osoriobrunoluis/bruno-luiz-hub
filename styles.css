@@ -376,45 +376,44 @@ body::after {
   border-bottom-color: var(--gold);
 }
 
-/* ---------- Animação de entrada (cascade) ---------- */
+/* ---------- Animação de entrada (cascade, CSS-only) ---------- */
+/* Importante: sem dependência de JS. Garante que crawlers, leitores
+   de tela e o screenshot service da Vercel vejam o conteúdo. */
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes line-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
 
 [data-anim] {
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity 900ms var(--ease),
-    transform 900ms var(--ease);
+  animation: rise-in 900ms var(--ease) both;
 }
 
-.is-ready [data-anim] {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.is-ready [data-anim="1"] { transition-delay: 100ms; }
-.is-ready [data-anim="2"] { transition-delay: 240ms; }
-.is-ready [data-anim="3"] { transition-delay: 380ms; }
-.is-ready [data-anim="4"] { transition-delay: 520ms; }
-.is-ready [data-anim="5"] { transition-delay: 640ms; }
-.is-ready [data-anim="6"] { transition-delay: 760ms; }
-.is-ready [data-anim="7"] { transition-delay: 920ms; }
-.is-ready [data-anim="8"] { transition-delay: 1140ms; }
+[data-anim="1"] { animation-delay: 100ms; }
+[data-anim="2"] { animation-delay: 240ms; }
+[data-anim="3"] { animation-delay: 380ms; }
+[data-anim="4"] { animation-delay: 520ms; }
+[data-anim="5"] { animation-delay: 640ms; }
+[data-anim="6"] { animation-delay: 760ms; }
+[data-anim="7"] { animation-delay: 920ms; }
+[data-anim="8"] { animation-delay: 1140ms; }
 
 /* Reveal especial para a linha do monograma — cresce a partir do centro */
 .mark__line {
-  transform: scaleX(0);
-  transition: transform 1100ms var(--ease) 200ms;
   transform-origin: center;
+  animation: line-grow 1100ms var(--ease) 200ms both;
 }
-.is-ready .mark__line { transform: scaleX(1); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }
-  [data-anim] { opacity: 1; transform: none; }
-  .mark__line { transform: scaleX(1); }
 }
 
 /* ---------- Responsivo ---------- */
