@@ -17,15 +17,16 @@
   --line:      rgba(26, 23, 20, 0.14);
   --line-soft: rgba(26, 23, 20, 0.08);
 
-  --green:        #2a3f33;          /* verde-musgo profundo (botão primário) */
-  --green-deep:   #1f2f26;
+  --noir:         #1a1714;          /* preto profundo aquecido (botão primário) */
+  --noir-deep:    #0e0c09;
   --gold:         #b89968;          /* ouro terroso, sofisticado */
   --gold-deep:    #a3855a;
   --gold-glow:    rgba(184, 153, 104, 0.28);
 
   /* --- Tipografia --- */
-  --serif: "Fraunces", "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --sans:  "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --display: "Cinzel", "Trajan Pro", "Optima", Georgia, serif;             /* nome, tags, monograma */
+  --serif:   "Fraunces", "Cormorant Garamond", Georgia, "Times New Roman", serif; /* tagline italic */
+  --sans:    "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 
   /* --- Espaços --- */
   --gutter: clamp(1.25rem, 4vw, 2rem);
@@ -139,10 +140,10 @@ body::after {
 }
 
 .mark__monogram {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 0.95rem;
-  letter-spacing: 0.18em;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 0.92rem;
+  letter-spacing: 0.22em;
   color: var(--ink-soft);
 }
 
@@ -159,13 +160,14 @@ body::after {
 
 .name {
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(2.85rem, 9.5vw, 4.75rem);
-  letter-spacing: -0.018em;
-  line-height: 1.0;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 8.4vw, 4.1rem);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
   color: var(--ink);
-  font-variation-settings: "opsz" 144;
+  /* Cinzel já é maiúscula nativa; reforço pra garantir consistência */
+  text-transform: uppercase;
 }
 
 .ornament {
@@ -173,8 +175,8 @@ body::after {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  width: clamp(7rem, 18vw, 9rem);
-  margin: 1.75rem 0 1.25rem;
+  width: clamp(6rem, 16vw, 8rem);
+  margin: 2rem 0 1.5rem;
 }
 
 .ornament__line {
@@ -227,8 +229,9 @@ body::after {
 }
 
 .cta__tag {
-  font-size: 0.68rem;
-  letter-spacing: 0.32em;
+  font-family: var(--display);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-mute);
   font-weight: 500;
@@ -248,9 +251,9 @@ body::after {
 /* ---------- Botões ---------- */
 
 .btn {
-  --btn-bg:     var(--green);
+  --btn-bg:     var(--noir);
   --btn-fg:     var(--bg);
-  --btn-border: var(--green);
+  --btn-border: var(--noir);
 
   position: relative;
   display: inline-flex;
