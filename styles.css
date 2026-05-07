@@ -277,7 +277,7 @@ body::after {
 
   background: var(--btn-bg);
   color: var(--btn-fg);
-  border: 2.5px solid var(--btn-border);
+  border: 2px solid var(--btn-border);
   border-radius: 999px;
 
   cursor: pointer;
@@ -327,8 +327,8 @@ body::after {
 
 /* Variante secundária (criação digital) — contorno escuro discreto, fino */
 .btn--ghost {
-  --btn-border: rgba(26, 23, 20, 0.28);
-  border-width: 1px;
+  --btn-border: rgba(26, 23, 20, 0.38);
+  border-width: 1.5px;
 }
 
 .btn__label {
