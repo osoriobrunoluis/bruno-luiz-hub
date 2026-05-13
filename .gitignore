@@ -4,3 +4,8 @@ node_modules/
 .env
 .env.local
 *.log
+.vercel
+
+# Logos PNG mantidos localmente para testes futuros (não usados no site)
+logo.png
+LogoBlue.png

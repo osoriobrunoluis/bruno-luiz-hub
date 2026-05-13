@@ -9,8 +9,8 @@
   color-scheme: light;
 
   /* --- Cores --- */
-  --bg:        #f3ede1;             /* creme aquecido (papel) */
-  --bg-deep:   #ebe2d2;             /* sombra do creme nos cantos (vinheta) */
+  --bg:        #faf5ea;             /* creme aquecido (papel) */
+  --bg-deep:   #f1e9d6;             /* sombra do creme nos cantos (vinheta) */
   --ink:       #1a1714;             /* tinta — preto aquecido */
   --ink-soft:  #4a443c;             /* texto secundário */
   --ink-mute:  #8a8275;             /* meta, eyebrows */
@@ -123,7 +123,7 @@ body::after {
   align-items: center;
 }
 
-/* ---------- Monograma (mark) ---------- */
+/* ---------- Símbolo da marca (mark) ---------- */
 
 .mark {
   display: flex;
@@ -137,6 +137,8 @@ body::after {
   flex: 1;
   height: 1px;
   background: var(--line);
+  transform-origin: center;
+  animation: line-grow 1100ms var(--ease) 200ms both;
 }
 
 .mark__monogram {
@@ -145,6 +147,11 @@ body::after {
   font-size: 0.92rem;
   letter-spacing: 0.22em;
   color: var(--ink-soft);
+}
+
+@keyframes line-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 /* ---------- Tipografia ---------- */
@@ -394,11 +401,6 @@ body::after {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes line-grow {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-
 [data-anim] {
   animation: rise-in 900ms var(--ease) both;
 }
@@ -411,12 +413,6 @@ body::after {
 [data-anim="6"] { animation-delay: 760ms; }
 [data-anim="7"] { animation-delay: 920ms; }
 [data-anim="8"] { animation-delay: 1140ms; }
-
-/* Reveal especial para a linha do monograma — cresce a partir do centro */
-.mark__line {
-  transform-origin: center;
-  animation: line-grow 1100ms var(--ease) 200ms both;
-}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
